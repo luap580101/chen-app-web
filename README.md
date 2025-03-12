@@ -33,7 +33,7 @@
   後端採用 JWT (JSON Web Token) 作為帳號登入、驗證機制，確保安全性。
 
 - **課程管理功能**
-  - 課程建立、編輯、刪除（限講師）
+  - 課程建立（限講師）
   - 課程列表、報名（學生）
 
 - **資料儲存**  
@@ -78,10 +78,14 @@ npm run dev
 MongoDB 部署於 /mongodb 資料夾，使用 Docker 進行架設：
 
 ```bash
-# 啟動 MongoDB
+# 進入 mongodb 資料夾
 cd mongodb
 
-docker-compose up -d
+# 建置 MongoDB 映像檔
+docker build -t my-mongo .
+
+# 執行 MongoDB 容器
+docker run -d -p 27017:27017 --name my-mongo-container my-mongo
 
 ```
 
